@@ -1,5 +1,9 @@
 import WebDriver_Class
 import time
+import os
+import telegram
+
+bot = telegram.Bot(token='453642591:AAFwBdO7CaZ4XpfYi1ud3b6nURjYisHgs-s')
 from bs4 import BeautifulSoup
 
 str_Chrome_Path = "C:/Users/이성원/Selenium_Driver/chromedriver_win32/chromedriver"
@@ -7,6 +11,8 @@ str_Chrome_Path = "C:/Users/이성원/Selenium_Driver/chromedriver_win32/chromed
 # str_AirBitClub_Login_URL = "https://www.bitbackoffice.com/auth/login"
 str_Edu_URL = "https://www2.u-uniedu.com/"
 Wallet_Path = "https://www.bitbackoffice.com/wallets"
+
+str_complete_message = ""
 
 
 Browser1 = WebDriver_Class.WebDriver(str_Chrome_Path)
@@ -16,10 +22,13 @@ Browser1.send_key_by_name("inLoginPWD", "9685")
 Browser1.send_click_event('/html/body/div[2]/div/div[5]/div[3]/div[1]/form/div[2]/a/img')
 for index in range(17, 25):
     Browser1.execute_javascript("window.open('http://www2.u-uniedu.com/myClass/d_class.html?Chapter=" + str(
-        index) + "&Page=1&CSIDX=97457', 'new_window')")
+        index) + "&Page=1&CSIDX=97457');")
     time.sleep(610)
+    str_complete_message = "newlife094 Chapter" + str(index) + "Completed. (17~25)"
+    bot.sendMessage(chat_id='468017156', text=str_complete_message)
 driver = Browser1.return_browser()
 driver.close()
+bot.sendMessage(chat_id='468017156', text="newlife094 Finished!")
 
 
 Browser2 = WebDriver_Class.WebDriver(str_Chrome_Path)
@@ -29,10 +38,13 @@ Browser2.send_key_by_name("inLoginPWD", "0024")
 Browser2.send_click_event('/html/body/div[2]/div/div[5]/div[3]/div[1]/form/div[2]/a/img')
 for index in range(17, 25):
     Browser2.execute_javascript("window.open('http://www2.u-uniedu.com/myClass/d_class.html?Chapter=" + str(
-        index) + "&Page=1&CSIDX=97461', 'new_window')")
+        index) + "&Page=1&CSIDX=97461');")
     time.sleep(610)
+    str_complete_message = "newlife103 Chapter" + str(index) + "Completed. (17~25)"
+    bot.sendMessage(chat_id='468017156', text=str_complete_message)
 driver = Browser2.return_browser()
 driver.close()
+bot.sendMessage(chat_id='468017156', text="newlife103 Finished!")
 
 """"""
 Browser3 = WebDriver_Class.WebDriver(str_Chrome_Path)
@@ -42,10 +54,13 @@ Browser3.send_key_by_name("inLoginPWD", "7966")
 Browser3.send_click_event('/html/body/div[2]/div/div[5]/div[3]/div[1]/form/div[2]/a/img')
 for index in range(17, 25):
     Browser3.execute_javascript("window.open('http://www2.u-uniedu.com/myClass/d_class.html?Chapter=" + str(
-        index) + "&Page=1&CSIDX=97464', 'new_window')")
+        index) + "&Page=1&CSIDX=97464');")
     time.sleep(610)
+    str_complete_message = "newlife109 Chapter" + str(index) + "Completed. (17~25)"
+    bot.sendMessage(chat_id='468017156', text=str_complete_message)
 driver = Browser3.return_browser()
 driver.close()
+bot.sendMessage(chat_id='468017156', text="newlife109 Finished!")
 
 """"""
 Browser4 = WebDriver_Class.WebDriver(str_Chrome_Path)
@@ -55,10 +70,13 @@ Browser4.send_key_by_name("inLoginPWD", "1788")
 Browser4.send_click_event('/html/body/div[2]/div/div[5]/div[3]/div[1]/form/div[2]/a/img')
 for index in range(17, 25):
     Browser4.execute_javascript("window.open('http://www2.u-uniedu.com/myClass/d_class.html?Chapter=" + str(
-        index) + "&Page=1&CSIDX=97637', 'new_window')")
+        index) + "&Page=1&CSIDX=97637');")
     time.sleep(610)
+    str_complete_message = "newlife158 Chapter" + str(index) + "Completed. (17~25)"
+    bot.sendMessage(chat_id='468017156', text=str_complete_message)
 driver = Browser4.return_browser()
 driver.close()
+bot.sendMessage(chat_id='468017156', text="newlife158 Finished!")
 
 """"""
 Browser5 = WebDriver_Class.WebDriver(str_Chrome_Path)
@@ -68,10 +86,13 @@ Browser5.send_key_by_name("inLoginPWD", "3927")
 Browser5.send_click_event('/html/body/div[2]/div/div[5]/div[3]/div[1]/form/div[2]/a/img')
 for index in range(17, 25):
     Browser5.execute_javascript("window.open('http://www2.u-uniedu.com/myClass/d_class.html?Chapter=" + str(
-        index) + "&Page=1&CSIDX=97425', 'new_window')")
+        index) + "&Page=1&CSIDX=97425');")
     time.sleep(610)
+    str_complete_message = "newlife036 Chapter" + str(index) + "Completed. (17~25)"
+    bot.sendMessage(chat_id='468017156', text=str_complete_message)
 driver = Browser5.return_browser()
 driver.close()
+bot.sendMessage(chat_id='468017156', text="newlife036 Finished!")
 
 """"""
 Browser6 = WebDriver_Class.WebDriver(str_Chrome_Path)
@@ -81,11 +102,13 @@ Browser6.send_key_by_name("inLoginPWD", "1220")
 Browser6.send_click_event('/html/body/div[2]/div/div[5]/div[3]/div[1]/form/div[2]/a/img')
 for index in range(13, 17):
     Browser6.execute_javascript("window.open('http://www2.u-uniedu.com/myClass/d_class.html?Chapter=" + str(
-        index) + "&Page=1&CSIDX=97638', 'new_window')")
+        index) + "&Page=1&CSIDX=97638');")
     time.sleep(610)
+    str_complete_message = "newlife159 Chapter" + str(index) + "Completed. (13~17)"
+    bot.sendMessage(chat_id='468017156', text=str_complete_message)
 driver = Browser6.return_browser()
 driver.close()
-
+bot.sendMessage(chat_id='468017156', text="newlife159 Finished!")
 
 
 """"""
@@ -96,10 +119,13 @@ Browser7.send_key_by_name("inLoginPWD", "3104")
 Browser7.send_click_event('/html/body/div[2]/div/div[5]/div[3]/div[1]/form/div[2]/a/img')
 for index in range(10, 17):
     Browser7.execute_javascript("window.open('http://www2.u-uniedu.com/myClass/d_class.html?Chapter=" + str(
-        index) + "&Page=1&CSIDX=97462', 'new_window')")
+        index) + "&Page=1&CSIDX=97462');")
     time.sleep(610)
+    str_complete_message = "newlife104 Chapter" + str(index) + "Completed. (10~17)"
+    bot.sendMessage(chat_id='468017156', text=str_complete_message)
 driver = Browser7.return_browser()
 driver.close()
+bot.sendMessage(chat_id='468017156', text="newlife104 Finished!")
 
 
 """"""
@@ -110,11 +136,13 @@ Browser8.send_key_by_name("inLoginPWD", "4763")
 Browser8.send_click_event('/html/body/div[2]/div/div[5]/div[3]/div[1]/form/div[2]/a/img')
 for index in range(10, 17):
     Browser8.execute_javascript("window.open('http://www2.u-uniedu.com/myClass/d_class.html?Chapter=" + str(
-        index) + "&Page=1&CSIDX=97426', 'new_window')")
+        index) + "&Page=1&CSIDX=97426');")
     time.sleep(610)
+    str_complete_message = "newlife037 Chapter" + str(index) + "Completed. (10~17)"
+    bot.sendMessage(chat_id='468017156', text=str_complete_message)
 driver = Browser8.return_browser()
 driver.close()
-
+bot.sendMessage(chat_id='468017156', text="newlife037 Finished!")
 
 """"""
 Browser9 = WebDriver_Class.WebDriver(str_Chrome_Path)
@@ -124,10 +152,13 @@ Browser9.send_key_by_name("inLoginPWD", "1551")
 Browser9.send_click_event('/html/body/div[2]/div/div[5]/div[3]/div[1]/form/div[2]/a/img')
 for index in range(10, 17):
     Browser9.execute_javascript("window.open('http://www2.u-uniedu.com/myClass/d_class.html?Chapter=" + str(
-        index) + "&Page=1&CSIDX=97471', 'new_window')")
+        index) + "&Page=1&CSIDX=97471');")
     time.sleep(610)
+    str_complete_message = "newlife133 Chapter" + str(index) + "Completed. (10~17)"
+    bot.sendMessage(chat_id='468017156', text=str_complete_message)
 driver = Browser9.return_browser()
 driver.close()
+bot.sendMessage(chat_id='468017156', text="newlife133 Finished!")
 
 """"""
 Browser10 = WebDriver_Class.WebDriver(str_Chrome_Path)
@@ -137,10 +168,13 @@ Browser10.send_key_by_name("inLoginPWD", "3731")
 Browser10.send_click_event('/html/body/div[2]/div/div[5]/div[3]/div[1]/form/div[2]/a/img')
 for index in range(10, 17):
     Browser10.execute_javascript("window.open('http://www2.u-uniedu.com/myClass/d_class.html?Chapter=" + str(
-        index) + "&Page=1&CSIDX=97491', 'new_window')")
+        index) + "&Page=1&CSIDX=97491');")
     time.sleep(610)
+    str_complete_message = "newlife156 Chapter" + str(index) + "Completed. (10~17)"
+    bot.sendMessage(chat_id='468017156', text=str_complete_message)
 driver = Browser10.return_browser()
 driver.close()
+bot.sendMessage(chat_id='468017156', text="newlife156 Finished!")
 
 
     # driver = Browser1.return_browser()

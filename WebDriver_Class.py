@@ -33,6 +33,9 @@ class WebDriver:
     def execute_javascript(self, strcommand):
         self.browser.execute_script(strcommand)
 
+    def quit_browser(self):
+        self.browser.quit()
+
     def quit(self):
         self.browser.quit()
 

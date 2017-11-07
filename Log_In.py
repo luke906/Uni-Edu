@@ -51,9 +51,7 @@ def class_exam():
         Browser.send_key_by_name("inLoginID", id)
         Browser.send_key_by_name("inLoginPWD", pw)
         Browser.send_click_event('/html/body/div[2]/div/div[3]/div[3]/div[1]/form/div[2]/a/img')
-
         # Browser.execute_javascript("fnLogin();")
-
 
         for class_index in range(1, 7):
             start_time = time.time()

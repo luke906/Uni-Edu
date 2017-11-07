@@ -2,30 +2,16 @@ import WebDriver_Class
 import time
 import os
 import telegram
-from apscheduler.schedulers.background import BlockingScheduler
-
-bot = telegram.Bot(token='453642591:AAFwBdO7CaZ4XpfYi1ud3b6nURjYisHgs-s')
+# from apscheduler.schedulers.background import BlockingScheduler
 from bs4 import BeautifulSoup
+bot = telegram.Bot(token='453642591:AAFwBdO7CaZ4XpfYi1ud3b6nURjYisHgs-s')
 
 str_Chrome_Path = "./chromedriver"
-
-# str_AirBitClub_Login_URL = "https://www.bitbackoffice.com/auth/login"
 str_Edu_URL = "https://www1.u-uniedu.com/"
-
-# http://www1.u-uniedu.com/myClass/d_class.html?Chapter=1&Page=1&CSIDX=101035
 
 id_list = []
 password_list = []
 browser_list = []
-
-start_index = 0
-end_index = 3
-login_flag = False
-login_index = -1
-
-
-
-scheduler = None
 
 def get_person_info():
 
@@ -55,44 +41,32 @@ def get_account_count():
 
 def class_exam():
 
-    global Browser
-    global start_index
-    global scheduler
-    global login_flag, login_index
     global id_list, password_list
 
-    start_index += 1
-
-    if login_index == get_account_count():
-        print("종료")
-        scheduler.remove_job('browser1')
-        return
-
-    if login_flag == False:
-        login_index += 1
+    for start_index in range(0, get_account_count()):
         Browser = WebDriver_Class.WebDriver(str_Chrome_Path)
         Browser.move_to_url(str_Edu_URL)
         Browser.send_key_by_name("inLoginID", id_list[start_index])
         Browser.send_key_by_name("inLoginPWD", password_list[start_index])
         Browser.execute_javascript("fnLogin();")
-        login_flag = True
 
-    if start_index == end_index:
-        login_flag = False
-        Browser.quit_browser()
-        return
+        for class_index in range(1, 7):
+            start_time = time.time()
 
-    Browser.execute_javascript("window.open('http://www1.u-uniedu.com/myClass/d_class.html?Chapter=" + str(start_index) + "&Page=1&CSIDX=" + browser_list[login_index] + "');")
+            Browser.execute_javascript("window.open('http://www1.u-uniedu.com/myClass/d_class.html?Chapter=" + str(class_index) + "&Page=1&CSIDX=" + browser_list[start_index] + "');")
 
-def kill_schedule(schedule, schedule_id):
-    schedule.remove_job(schedule_id)
+            while True:
+                if ( time.time()- start_time ) > 610:
+                    break
+
+        Browser.quit()
+
 
 if __name__   == "__main__":
 
     get_person_info()
+    class_exam()
 
-    scheduler = BlockingScheduler()
-    scheduler.add_job(class_exam, 'interval', seconds=10, id='browser1')
-    scheduler.start()
+
 
 

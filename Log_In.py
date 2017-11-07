@@ -13,14 +13,20 @@ id_list = []
 password_list = []
 browser_list = []
 
-def get_person_info():
+def get_person_info(file_flag):
 
     global id_list
     global password_list
     global browser_list
 
+    delete_list_data()
+
     try:
-        f = open("./ID_List.txt", 'r')
+        if file_flag == 1:
+            f = open("./ID_List_1.txt", 'r')
+        elif file_flag == 2:
+            f = open("./ID_List_2.txt", 'r')
+
         read_line = f.readlines()
 
         for line in read_line:
@@ -38,6 +44,15 @@ def get_person_info():
 def get_account_count():
     return len(id_list)
 
+def delete_list_data():
+
+    global id_list
+    global password_list
+    global browser_list
+
+    del id_list[:]
+    del password_list[:]
+    del browser_list[:]
 
 def class_exam():
 
@@ -66,8 +81,14 @@ def class_exam():
 
 if __name__   == "__main__":
 
-    get_person_info()
+    # 산업안전과정 상
+    get_person_info(1)
     class_exam()
+
+    # 산업안전과정 하
+    get_person_info(2)
+    class_exam()
+
 
 
 

@@ -13,6 +13,7 @@ class WebDriver:
         self.browser.implicitly_wait(3)
 
     def move_to_url(self, destination_url):
+        self.browser.implicitly_wait(10)
         self.browser.get(destination_url)
 
     def send_key_by_name(self, name_key, send_value):

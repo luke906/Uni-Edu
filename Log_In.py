@@ -41,25 +41,29 @@ def get_account_count():
 
 def class_exam():
 
-    global id_list, password_list
+    global id_list, password_list, browser_list
 
     for start_index in range(0, get_account_count()):
+        id = id_list[start_index]
+        pw = password_list[start_index]
         Browser = WebDriver_Class.WebDriver(str_Chrome_Path)
         Browser.move_to_url(str_Edu_URL)
-        Browser.send_key_by_name("inLoginID", id_list[start_index])
-        Browser.send_key_by_name("inLoginPWD", password_list[start_index])
-        Browser.execute_javascript("fnLogin();")
+        Browser.send_key_by_name("inLoginID", id)
+        Browser.send_key_by_name("inLoginPWD", pw)
+        Browser.send_click_event('/html/body/div[2]/div/div[3]/div[3]/div[1]/form/div[2]/a/img')
+
+        # Browser.execute_javascript("fnLogin();")
+
 
         for class_index in range(1, 7):
             start_time = time.time()
-
             Browser.execute_javascript("window.open('http://www1.u-uniedu.com/myClass/d_class.html?Chapter=" + str(class_index) + "&Page=1&CSIDX=" + browser_list[start_index] + "');")
 
             while True:
                 if ( time.time()- start_time ) > 610:
                     break
 
-        Browser.quit()
+        Browser.quit_browser()
 
 
 if __name__   == "__main__":

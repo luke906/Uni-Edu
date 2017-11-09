@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.keys import Keys
 
 class WebDriver:
 
@@ -33,6 +34,12 @@ class WebDriver:
 
     def execute_javascript(self, strcommand):
         self.browser.execute_script(strcommand)
+
+    def close_latest_tab(self):
+        driver = self.browser
+        driver.switch_to.window(driver.window_handles[-1])
+        driver.close()
+
 
     def quit_browser(self):
         self.browser.quit()

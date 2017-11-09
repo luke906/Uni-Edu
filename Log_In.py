@@ -74,9 +74,10 @@ def class_exam(start_class_index, end_class_index):
             Browser.execute_javascript("window.open('http://www1.u-uniedu.com/myClass/d_class.html?Chapter=" + str(class_index) + "&Page=1&CSIDX=" + browser_list[start_index] + "');")
 
             while True:
-                if ( time.time()- start_time ) > 630:
+                if ( time.time()- start_time ) > 10:
                     break
 
+        Browser.close_latest_tab()
         Browser.quit_browser()
 
 

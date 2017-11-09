@@ -27,6 +27,8 @@ def get_person_info(file_flag):
             f = open("./ID_List_1.txt", 'r')
         elif file_flag == 2:
             f = open("./ID_List_2.txt", 'r')
+        elif file_flag == 3:
+            f = open("./lsy_List.txt", 'r')
 
         read_line = f.readlines()
 
@@ -72,7 +74,7 @@ def class_exam(start_class_index, end_class_index):
             Browser.execute_javascript("window.open('http://www1.u-uniedu.com/myClass/d_class.html?Chapter=" + str(class_index) + "&Page=1&CSIDX=" + browser_list[start_index] + "');")
 
             while True:
-                if ( time.time()- start_time ) > 610:
+                if ( time.time()- start_time ) > 630:
                     break
 
         Browser.quit_browser()
@@ -80,6 +82,7 @@ def class_exam(start_class_index, end_class_index):
 
 if __name__   == "__main__":
 
+    """
     # 산업안전과정 상
     get_person_info(1)
     class_exam(1,6)
@@ -87,6 +90,9 @@ if __name__   == "__main__":
     # 산업안전과정 하
     get_person_info(2)
     class_exam(1,6)
+    """
+    get_person_info(3)
+    class_exam(1, 6)
 
 
 

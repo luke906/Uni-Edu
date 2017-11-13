@@ -86,14 +86,14 @@ if __name__   == "__main__":
     """
     # 산업안전과정 상
     get_person_info(1)
-    class_exam(1,6)
+    class_exam(7,12)
 
     # 산업안전과정 하
     get_person_info(2)
-    class_exam(1,6)
+    class_exam(7,12)
     """
-    get_person_info(3)
-    class_exam(1, 6)
+    #get_person_info(3)
+    #class_exam(7, 12)
 
 
 
